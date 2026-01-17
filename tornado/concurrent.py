@@ -64,15 +64,8 @@ class DummyExecutor(futures.Executor):
             future_set_exc_info(future, sys.exc_info())
         return future
 
-    if sys.version_info >= (3, 9):
-
-        def shutdown(self, wait: bool = True, cancel_futures: bool = False) -> None:
-            pass
-
-    else:
-
-        def shutdown(self, wait: bool = True) -> None:
-            pass
+    def shutdown(self, wait: bool = True, cancel_futures: bool = False) -> None:
+        pass
 
 
 dummy_executor = DummyExecutor()
